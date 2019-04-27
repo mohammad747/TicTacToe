@@ -17,6 +17,65 @@ public class Game extends javax.swing.JFrame {
         initComponents();
     }
 
+    int p1won[] = {0,0,0,0,0,0,0,0,0};
+    int p2won[] = {0,0,0,0,0,0,0,0,0};
+
+    int p1won(){
+        if(p1won[0]==1 && p1won[1]==1 && p1won[2]==1){
+            return 1;
+        }
+        if(p1won[3]==1 && p1won[4]==1 && p1won[5]==1){
+            return 1;
+        }
+        if(p1won[6]==1 && p1won[7]==1 && p1won[8]==1){
+            return 1;
+        }
+        if(p1won[0]==1 && p1won[4]==1 && p1won[8]==1){
+            return 1;
+        }
+        if(p1won[2]==1 && p1won[4]==1 && p1won[6]==1){
+            return 1;
+        }
+        if(p1won[0]==1 && p1won[3]==1 && p1won[6]==1){
+            return 1;
+        }
+        if(p1won[1]==1 && p1won[4]==1 && p1won[7]==1){
+            return 1;
+        }
+        if(p1won[2]==1 && p1won[5]==1 && p1won[8]==1){
+            return 1;
+        }
+        return 0;
+    }
+
+    int p2won(){
+        if(p2won[0]==1 && p2won[1]==1 && p2won[2]==1){
+            return 1;
+        }
+        if(p2won[3]==1 && p2won[4]==1 && p2won[5]==1){
+            return 1;
+        }
+        if(p2won[6]==1 && p2won[7]==1 && p2won[8]==1){
+            return 1;
+        }
+        if(p2won[0]==1 && p2won[4]==1 && p2won[8]==1){
+            return 1;
+        }
+        if(p2won[2]==1 && p2won[4]==1 && p2won[6]==1){
+            return 1;
+        }
+        if(p2won[0]==1 && p2won[3]==1 && p2won[6]==1){
+            return 1;
+        }
+        if(p2won[1]==1 && p2won[4]==1 && p2won[7]==1){
+            return 1;
+        }
+        if(p2won[2]==1 && p2won[5]==1 && p2won[8]==1){
+            return 1;
+        }
+        return 0;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
