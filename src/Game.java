@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 /**
  *
  * @author moham
@@ -18,8 +20,8 @@ public class Game extends javax.swing.JFrame {
     }
     
     int turn = 2;
-    
-    
+
+    int buttonUsed[] = {0,0,0,0,0,0,0,0,0};
 
     int p1won[] = {0,0,0,0,0,0,0,0,0};
     int p2won[] = {0,0,0,0,0,0,0,0,0};
@@ -80,6 +82,14 @@ public class Game extends javax.swing.JFrame {
         return 0;
     }
 
+    void whoWon(){
+        if(p1won()==1){
+            JOptionPane.showMessageDialog(rootPane,"**** PLAYER ONE HAS WON THE GAME ****");
+        } else if(p2won()==1) {
+            JOptionPane.showMessageDialog(rootPane,"**** PLAYER TWO HAS WON THE GAME ****");
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,7 +99,6 @@ public class Game extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton6 = new javax.swing.JButton();
         b5 = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
@@ -101,12 +110,6 @@ public class Game extends javax.swing.JFrame {
         b9 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
 
-        jButton6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,184 +183,275 @@ public class Game extends javax.swing.JFrame {
                 resetActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        {
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addContainerGap()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                    .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(b8, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            layout.setVerticalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(b8, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+        }//design of board
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b5.setText("X");
-        }
-        else {
-            turn++;
-            b5.setText("O");
-        }
-    }//GEN-LAST:event_b5ActionPerformed
-
+    //button 1
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b1.setText("X");
+        if(buttonUsed[0]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b1.setText("X");
+                buttonUsed[0]=1;
+                p1won[0] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b1.setText("O");
+                buttonUsed[0]=1;
+                p2won[0] = 1;
+                whoWon();
+            }
         }
-        else {
-            turn++;
-            b1.setText("O");
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
-        
+
     }//GEN-LAST:event_b1ActionPerformed
 
+    //button 2
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b2.setText("X");
+        if(buttonUsed[1]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b2.setText("X");
+                buttonUsed[1]=1;
+                p1won[1] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b2.setText("O");
+                buttonUsed[1]=1;
+                p2won[1] = 1;
+                whoWon();
+            }
         }
-        else {
-            turn++;
-            b2.setText("O");
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
+
     }//GEN-LAST:event_b2ActionPerformed
 
+    //button 3
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b3.setText("X");
+        if(buttonUsed[2]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b3.setText("X");
+                buttonUsed[2]=1;
+                p1won[2] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b3.setText("O");
+                buttonUsed[2]=1;
+                p2won[2] = 1;
+                whoWon();
+            }
         }
         else {
-            turn++;
-            b3.setText("O");
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
     }//GEN-LAST:event_b3ActionPerformed
 
-    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b6.setText("X");
-        }
-        else {
-            turn++;
-            b6.setText("O");
-        }
-    }//GEN-LAST:event_b6ActionPerformed
-     //TODO : I don't know how to delete this button
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b5.setText("X");
-        }
-        else {
-            turn++;
-            b5.setText("O");
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b8.setText("X");
-        }
-        else {
-            turn++;
-            b8.setText("O");
-        }
-    }//GEN-LAST:event_b8ActionPerformed
-
+    //button 4
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b4.setText("X");
+        if(buttonUsed[3]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b4.setText("X");
+                buttonUsed[3]=1;
+                p1won[3] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b4.setText("O");
+                buttonUsed[3]=1;
+                p2won[3] = 1;
+                whoWon();
+            }
         }
-        else {
-            turn++;
-            b4.setText("O");
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
     }//GEN-LAST:event_b4ActionPerformed
 
+    //button 5
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        // TODO add your handling code here:
+        if(buttonUsed[4]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b5.setText("X");
+                buttonUsed[4]=1;
+                p1won[4] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b5.setText("O");
+                buttonUsed[4]=1;
+                p2won[4] = 1;
+                whoWon();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
+        }
+    }//GEN-LAST:event_b5ActionPerformed
+
+    //button 6
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
+        // TODO add your handling code here:
+        if(buttonUsed[5]==0){
+            if (turn % 2 == 0) {
+                turn++;
+                b6.setText("X");
+                buttonUsed[5]=1;
+                p1won[5] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b6.setText("O");
+                buttonUsed[5]=1;
+                p2won[5] = 1;
+                whoWon();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
+        }
+    }//GEN-LAST:event_b6ActionPerformed
+
+    //button 7
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b7.setText("X");
+        if(buttonUsed[6]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b7.setText("X");
+                buttonUsed[6]=1;
+                p1won[6] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b7.setText("O");
+                buttonUsed[6]=1;
+                p2won[6] = 1;
+                whoWon();
+            }
         }
-        else {
-            turn++;
-            b7.setText("O");
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
     }//GEN-LAST:event_b7ActionPerformed
 
+    //button 8
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        // TODO add your handling code here:
+        if(buttonUsed[7]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b8.setText("X");
+                buttonUsed[7]=1;
+                p1won[7] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b8.setText("O");
+                buttonUsed[7]=1;
+                p2won[7] = 1;
+                whoWon();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
+        }
+    }//GEN-LAST:event_b8ActionPerformed
+
+    //button 9
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
         // TODO add your handling code here:
-        if(turn%2==0){
-            turn++;
-            b9.setText("X");
+        if(buttonUsed[8]==0) {
+            if (turn % 2 == 0) {
+                turn++;
+                b9.setText("X");
+                buttonUsed[8]=1;
+                p1won[8] = 1;
+                whoWon();
+            } else {
+                turn++;
+                b9.setText("O");
+                buttonUsed[8]=1;
+                p2won[8] = 1;
+                whoWon();
+            }
         }
-        else {
-            turn++;
-            b9.setText("O");
+        else{
+            JOptionPane.showMessageDialog(rootPane, "This Button Is Used Allready!");
         }
     }//GEN-LAST:event_b9ActionPerformed
+
+    //TODO : I don't know how to delete this button
+
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
@@ -408,7 +502,6 @@ public class Game extends javax.swing.JFrame {
     private javax.swing.JButton b7;
     private javax.swing.JButton b8;
     private javax.swing.JButton b9;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }
