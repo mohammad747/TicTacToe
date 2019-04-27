@@ -450,11 +450,31 @@ public class Game extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b9ActionPerformed
 
-    //TODO : I don't know how to delete this button
 
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
+        b1.setText("");
+        b2.setText("");
+        b3.setText("");
+        b4.setText("");
+        b5.setText("");
+        b6.setText("");
+        b7.setText("");
+        b8.setText("");
+        b9.setText("");
+        
+        turn = 2;
+        
+        for(int i=0;i<9;i++){
+            buttonUsed[i] = 0;
+        }
+        for(int i=0;i<9;i++){
+            p1won[i] = 0;
+        }
+        for(int i=0;i<9;i++){
+            p2won[i] = 0;
+        }
     }//GEN-LAST:event_resetActionPerformed
 
     /**
